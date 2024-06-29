@@ -1,0 +1,34 @@
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+[*.{kt,kts}]
+ktlint_code_style = android_studio
+max_line_length = 160
+indent_style = space
+indent_size = 4
+ij_continuation_indent_size = 4
+ij_kotlin_allow_trailing_comma = true
+ij_kotlin_allow_trailing_comma_on_call_site = true
+ij_kotlin_name_count_to_use_star_import = 999
+ij_kotlin_name_count_to_use_star_import_for_members = 999
+ij_kotlin_packages_to_use_import_on_demand = ""
+ktlint_standard_function-signature = disabled
+ktlint_standard_import-ordering = disabled
+ktlint_standard_discouraged-comment-location = disabled
+#TODO replace with ktlint_function_naming_ignore_when_annotated_with=Composable in 1.0.1 https://github.com/pinterest/ktlint/issues/2259
+ktlint_standard_function-naming = disabled
+
+[**/test*/**.kt]
+max_line_length = 180
+ktlint_ignore_back_ticked_identifier = true
+
+[*.yml]
+ij_any_spaces_within_brackets = false
+
+[*.md]
+max_line_length = 160
+ij_markdown_min_lines_around_header = 1
+
+[docs/bluetooth/nrfConnect/**/*.xml]
+max_line_length = 300

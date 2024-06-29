@@ -1,8 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
+    id(libs.plugins.kotlin.kapt.get().pluginId)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ktlint)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -16,7 +18,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.filnik.goosegamekata.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -58,7 +60,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -69,6 +70,11 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.core.ktx)
     implementation(libs.androidx.ui.test.junit4.android)
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.runner)
+    kapt(libs.hilt.android.compiler)
+    kaptAndroidTest(libs.hilt.android.compiler)
+    testImplementation(libs.test.android.hilt)
     testImplementation(libs.junit)
     testImplementation(libs.androidx.robolectric)
     androidTestImplementation(libs.androidx.junit)
