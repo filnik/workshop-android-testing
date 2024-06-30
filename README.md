@@ -25,17 +25,21 @@ As a player, I want to add me to the game so that I can play.
 **Scenarios:**
 1. Add Player
    ```cucumber
+   Go to AddPlayerScreen.
+   
    If there is no participant
-   the user writes: "add player Pippo"
+   the user writes user's name ("Pippo") and presses "Add Player"
    the system responds: "players: Pippo"
-   the user writes: "add player Pluto"
+   the user writes user's name ("Pluto") and presses "Add Player"
    the system responds: "players: Pippo, Pluto"
    ```
 
 2. Duplicated Player
    ```cucumber
+   Go to AddPlayerScreen.
+   
    If there is already a participant "Pippo"
-   the user writes: "add player Pippo"
+   the user writes user's name ("Pippo") and presses "Add Player"
    the system responds: "Pippo: already existing player"
    ```
 

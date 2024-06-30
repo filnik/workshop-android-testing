@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ktlint)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -72,6 +73,8 @@ dependencies {
     implementation(libs.androidx.ui.test.junit4.android)
     implementation(libs.hilt.android)
     implementation(libs.androidx.runner)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
     kapt(libs.hilt.android.compiler)
     kaptAndroidTest(libs.hilt.android.compiler)
     testImplementation(libs.test.android.hilt)
