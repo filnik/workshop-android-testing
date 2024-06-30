@@ -29,6 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -43,8 +44,12 @@ import kotlinx.coroutines.flow.map
 fun GameBoardScreen(
     modifier: Modifier,
     players: StateFlow<List<Player>> = MutableStateFlow(emptyList()),
+    diceFlow: StateFlow<List<Int>> = MutableStateFlow(emptyList()),
 ) {
     val uiPlayers by players.map { it.map { player -> player.toUI() } }.collectAsState(initial = emptyList())
+    val dice by diceFlow.collectAsState()
+    val die1 = dice[0]
+    val die2 = dice[1]
 
     Column(
         modifier =
@@ -67,7 +72,7 @@ fun GameBoardScreen(
             modifier = Modifier.weight(1f),
             contentPadding = PaddingValues(4.dp),
         ) {
-            itemsIndexed((1..100).toList()) { index, cellNumber ->
+            itemsIndexed((1..63).toList()) { index, cellNumber ->
                 val player = uiPlayers.find { it.position == cellNumber }
                 if (player != null) {
                     DrawPlayerCell(player)
@@ -83,19 +88,21 @@ fun GameBoardScreen(
             modifier =
             Modifier
                 .fillMaxWidth()
-                .height(90.dp)
+                .height(100.dp)
                 .padding(bottom = 16.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             uiPlayers.forEach { player ->
                 if (player.rollDice) {
+                    val startingPosition = player.position - die1 - die2
                     Column(
                         modifier = Modifier.weight(1f),
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         Text(
-                            "${player.name}: position ${player.position}",
+                            "${player.name} rolls $die1, $die2.\n${player.name} moves from $startingPosition to ${player.position}",
                             fontSize = 16.sp,
+                            textAlign = TextAlign.Center,
                             fontWeight = FontWeight.Medium,
                             color = Color(0xFF333333),
                         )
@@ -146,9 +153,10 @@ private fun DrawCellWithNumber(index: Int, cellNumber: Int) {
     }
 }
 
-@Preview(showBackground = true, heightDp = 600)
+@Preview(showBackground = true, heightDp = 550)
 @Composable
 fun GameBoardPreview() {
-    val players = MutableStateFlow(listOf(Player(0, "Player 1", 9), Player(1, "Player 2", 2, true)))
-    GameBoardScreen(Modifier, players)
+    val players = MutableStateFlow(listOf(Player(0, "Player 1", 3), Player(1, "Player 2", 10, true)))
+    val dice = MutableStateFlow(listOf(6, 4))
+    GameBoardScreen(Modifier, players, dice)
 }
