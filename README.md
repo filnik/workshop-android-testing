@@ -2,16 +2,22 @@
 
 ## Credits
 
-The original version of this kata can be found [at this address](https://github.com/xpeppers/goose-game-kata) and is kindly offered  by [Matteo Vaccari](https://github.com/xpmatteo), you can find the original slides [here](https://www.slideshare.net/pierodibello/il-dilettevole-giuoco-delloca-coding-dojo).
+The original version of this kata can be found [at this address](https://github.com/xpeppers/goose-game-kata) and is kindly offered
+by [Matteo Vaccari](https://github.com/xpmatteo), you can find the original
+slides [here](https://www.slideshare.net/pierodibello/il-dilettevole-giuoco-delloca-coding-dojo).
 
-This version is adapted in order to be used during a workshop about Android testing. The UI in Jetpack Compose and the general architecture is already given to the user to help him focusing only on the testing phase.
+This version is adapted in order to be used during a workshop about Android testing. The UI in Jetpack Compose and the general architecture is already given to
+the user to help him focusing only on the testing phase.
 
 ## Intro
 
-Goose game is a game where two or more players move pieces around a track by rolling a die. The aim of the game is to reach square number sixty-three before any of the other players and avoid obstacles. ([wikipedia](https://en.wikipedia.org/wiki/Game_of_the_Goose))
+Goose game is a game where two or more players move pieces around a track by rolling a die. The aim of the game is to reach square number sixty-three before any
+of the other players and avoid obstacles. ([wikipedia](https://en.wikipedia.org/wiki/Game_of_the_Goose))
 
 ## General requirements
-- You should use Android Studio and Kotlin with JetPack Compose to perform this exercise. Otherwise, I strongly suggest to go to the original version of the kata :-)
+
+- You should use Android Studio and Kotlin with JetPack Compose to perform this exercise. Otherwise, I strongly suggest to go to the original version of the
+  kata :-)
 - You should release your work under an OSI-approved open-source license of your choice.
 - You should deliver the sources of your application, with a README that explains how to compile and run it.
 
@@ -20,9 +26,11 @@ Goose game is a game where two or more players move pieces around a track by rol
 ## Features
 
 ### 1. Add players
+
 As a player, I want to add me to the game so that I can play.
 
 **Scenarios:**
+
 1. Add Player
    ```cucumber
    Go to AddPlayerScreen.
@@ -44,9 +52,11 @@ As a player, I want to add me to the game so that I can play.
    ```
 
 ### 2. The game throws the dice
+
 As a player, I want the game throws the dice for me and generate random numbers between 1 to 6
 
 **Scenarios:**
+
 1. Dice roll
    ```cucumber
    If there is one participant "Pippo" on space "4"
@@ -60,9 +70,11 @@ As a player, I want the game throws the dice for me and generate random numbers 
    ```
 
 ### 3. Move a player
+
 As a player, I want to move the marker on the board to make the game progress
 
 **Scenarios:**
+
 1. Start
    ```cucumber
    If there are two participants "Pippo" and "Pluto" on space "Start"
@@ -77,10 +89,12 @@ As a player, I want to move the marker on the board to make the game progress
    and Pippo's marker is moved in the board according to the viewModel changes
    ```
 
-### 3. Win
+### 4. Win
+
 As a player, I win the game if I land on space "63"
 
 **Scenarios:**
+
 1. Victory
    ```cucumber
    If there is one participant "Pippo" on space "60"
@@ -96,4 +110,18 @@ As a player, I win the game if I land on space "63"
    Pippo rolls the dice and he hits "3, 2"
    the system responds: "Pippo rolls 3, 2. Pippo moves from 60 to 63. Pippo bounces! Pippo returns to 61"
    and Pippo's marker is moved in the board according to the viewModel changes
+   ```
+
+### 5. Space "6" is "The Bridge"
+
+As a player, when I get to the space "The Bridge", I jump to the space "12"
+
+**Scenarios:**
+
+1. Get to "The Bridge"
+   ```cucumber
+   If there is one participant "Pippo" on space "4"
+   assuming that the dice get 1 and 1
+   when the presses: "Roll Dice"
+   the system responds: "Pippo rolls 1, 1. Pippo moves from 4 to The Bridge. Pippo jumps to 12"
    ```
