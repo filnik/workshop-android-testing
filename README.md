@@ -37,9 +37,9 @@ As a player, I want to add me to the game so that I can play.
    
    If there is no participant
    the user writes user's name ("Pippo") and presses "Add Player"
-   the system responds: "players: Pippo"
+   the system responds: "Player list: Pippo"
    the user writes user's name ("Pluto") and presses "Add Player"
-   the system responds: "players: Pippo, Pluto"
+   the system responds: "Player list: Pippo, Pluto"
    ```
 
 2. Duplicated Player
