@@ -45,6 +45,7 @@ fun GameBoardScreen(
     modifier: Modifier,
     players: StateFlow<List<Player>> = MutableStateFlow(emptyList()),
     diceFlow: StateFlow<List<Int>> = MutableStateFlow(emptyList()),
+    rollDice: () -> Unit = {},
 ) {
     val uiPlayers by players.map { it.map { player -> player.toUI() } }.collectAsState(initial = emptyList())
     val dice by diceFlow.collectAsState()
@@ -107,7 +108,7 @@ fun GameBoardScreen(
                             color = Color(0xFF333333),
                         )
                         Button(
-                            onClick = { },
+                            onClick = rollDice,
                             modifier = Modifier.padding(top = 8.dp),
                             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFD48EDB)),
                         ) {
