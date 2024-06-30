@@ -44,7 +44,7 @@ import kotlinx.coroutines.flow.map
 fun GameBoardScreen(
     modifier: Modifier,
     players: StateFlow<List<Player>> = MutableStateFlow(emptyList()),
-    diceFlow: StateFlow<List<Int>> = MutableStateFlow(emptyList()),
+    diceFlow: StateFlow<List<Int>> = MutableStateFlow(listOf(1, 2)),
     rollDice: () -> Unit = {},
 ) {
     val uiPlayers by players.map { it.map { player -> player.toUI() } }.collectAsState(initial = emptyList())

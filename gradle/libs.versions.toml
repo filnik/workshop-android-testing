@@ -38,6 +38,9 @@ androidx-runner = { group = "androidx.test", name = "runner", version.ref = "run
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
 test-kotest-assertions-core = { group = "io.kotest", name = "kotest-assertions-core", version.strictly = "5.9.1" }
+test-junit-vintage = { group = 'org.junit.vintage', name = "junit-vintage-engine", version.strictly = "5.10.3" }
+test-junit5 = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.strictly = "5.10.3" }
+test-junit5-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.strictly = "5.10.3" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
