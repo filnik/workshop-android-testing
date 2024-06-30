@@ -13,7 +13,7 @@ import org.junit.runner.RunWith
 import org.robolectric.shadows.ShadowLog
 
 @RunWith(AndroidJUnit4::class)
-class GooseGameInstrumentedTest {
+class GameBoardInstrumentedTest {
     @get:Rule
     val composeTestRule = createComposeRule()
 
