@@ -44,7 +44,7 @@ As a player, I want to add me to the game so that I can play.
    ```
 
 ### 2. The game throws the dice
-As a player, I want the game throws the dice for me to move in the board
+As a player, I want the game throws the dice for me and generate random numbers between 1 to 6
 
 **Scenarios:**
 1. Dice roll
@@ -52,13 +52,12 @@ As a player, I want the game throws the dice for me to move in the board
    If there is one participant "Pippo" on space "4"
    assuming that the dice get 1 and 2
    when the user presses: "Roll Dice"
-   the system responds: "Pippo rolls 1, 2. Pippo moves from 4 to 7"
+   the system responds: "Pippo rolls 1, 2."
    when the user presses "Roll Dice" again, it's Pluto's turn
    assuming that the dice get 3 and 4
-   the system responds: "Pluto rolls 3, 4. Pippo moves from 8 to 15"
+   the system responds: "Pluto rolls 3, 4"
+   It's not required the user to actually move in the board. We want only the UI change in the text.
    ```
-   
-No actual movement of the markers is required at this step. We want only the UI change in the text.
 
 ### 3. Move a player
 As a player, I want to move the marker on the board to make the game progress
@@ -88,6 +87,7 @@ As a player, I win the game if I land on space "63"
    Pippo rolls the dice and he hits "1, 2"
    the system responds: "Pippo rolls 1, 2. Pippo moves from 60 to 63. Pippo Wins!!"
    and Pippo's marker is moved in the board according to the viewModel changes
+   Optional: the "Pippo Wins!!" text is in a Dialog. You need also to unit test the Dialog opening and appearance
    ```
 
 2. Winning with the exact dice shooting

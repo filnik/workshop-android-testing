@@ -45,7 +45,12 @@ class MainActivity : ComponentActivity() {
                     }
                     composable<GameBoardScreenRoute> {
                         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                            GameBoardScreen(modifier = Modifier.padding(innerPadding), players = viewModel.players)
+                            GameBoardScreen(
+                                modifier = Modifier.padding(innerPadding),
+                                players = viewModel.players,
+                                diceFlow = viewModel.dice,
+                                rollDice = viewModel::rollDice,
+                            )
                         }
                     }
                 }
