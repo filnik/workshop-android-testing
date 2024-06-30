@@ -27,6 +27,7 @@ import kotlinx.coroutines.flow.map
 
 @Composable
 fun AddPlayerScreen(
+    modifier: Modifier = Modifier,
     navigateToNextScreen: () -> Unit,
     playersFlow: StateFlow<List<Player>>,
     errorMessageFlow: StateFlow<String?>,
@@ -37,7 +38,7 @@ fun AddPlayerScreen(
     val errorMessage by errorMessageFlow.collectAsState()
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .padding(16.dp)
             .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
