@@ -3,6 +3,7 @@ package com.filnik.goosegamekata
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.test.core.app.ActivityScenario
 import androidx.test.runner.AndroidJUnit4
 import org.junit.Before
@@ -23,11 +24,15 @@ class GooseGameInstrumentedTest {
     }
 
     @Test
-    fun `test Roll Dice is present`() {
+    fun `can navigate to Goose Game board screen`() {
         val scenario = ActivityScenario.launch(MainActivity::class.java)
 
         scenario.onActivity { activity ->
-            composeTestRule.onNodeWithText("Roll Dice").assertIsDisplayed()
+            composeTestRule.onNodeWithText("Next").assertIsDisplayed().performClick()
+
+            composeTestRule.waitForIdle()
+
+            composeTestRule.onNodeWithText("Goose Game").assertIsDisplayed()
         }
     }
 }
