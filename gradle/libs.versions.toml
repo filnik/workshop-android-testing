@@ -12,6 +12,8 @@ coreKtxVersion = "1.6.1"
 uiTestJunit4Android = "1.6.8"
 dagger = "2.51.1"
 runner = "1.6.1"
+navigationCompose = "2.8.0-beta04"
+serialization = "1.6.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -35,6 +37,8 @@ hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "dagger" }
 test-android-hilt = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "dagger" }
 androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -43,3 +47,4 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.strictly = "12.1.1" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
 kotlin-kapt = { id = "kotlin-kapt", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
