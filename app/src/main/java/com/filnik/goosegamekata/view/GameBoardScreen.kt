@@ -89,7 +89,7 @@ fun GameBoardScreen(
             modifier =
             Modifier
                 .fillMaxWidth()
-                .height(100.dp)
+                .height(130.dp)
                 .padding(bottom = 16.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {

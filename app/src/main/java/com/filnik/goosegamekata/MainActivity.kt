@@ -34,14 +34,17 @@ class MainActivity : ComponentActivity() {
                     startDestination = AddPlayerScreenRoute,
                 ) {
                     composable<AddPlayerScreenRoute> {
-                        AddPlayerScreen(
-                            {
-                                navController.navigate(GameBoardScreenRoute)
-                            },
-                            viewModel.players,
-                            viewModel.errorMessage,
-                            viewModel::addPlayer,
-                        )
+                        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                            AddPlayerScreen(
+                                modifier = Modifier.padding(innerPadding),
+                                {
+                                    navController.navigate(GameBoardScreenRoute)
+                                },
+                                viewModel.players,
+                                viewModel.errorMessage,
+                                viewModel::addPlayer,
+                            )
+                        }
                     }
                     composable<GameBoardScreenRoute> {
                         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
