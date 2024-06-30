@@ -12,5 +12,6 @@ class MainViewModel @Inject constructor() : ViewModel() {
     val players = MutableStateFlow(listOf(Player(0, "Player 1", 9), Player(1, "Player 2", 2, true)))
 
     fun addPlayer(playerName: String) {
+        players.value = listOf(Player(0, "Pippo", 0, true))
     }
 }

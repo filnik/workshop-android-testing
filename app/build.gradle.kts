@@ -75,6 +75,7 @@ dependencies {
     implementation(libs.androidx.runner)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
+    testImplementation(libs.test.kotest.assertions.core)
     kapt(libs.hilt.android.compiler)
     kaptAndroidTest(libs.hilt.android.compiler)
     testImplementation(libs.test.android.hilt)
