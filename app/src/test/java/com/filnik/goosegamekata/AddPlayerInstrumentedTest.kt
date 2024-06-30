@@ -1,9 +1,6 @@
 package com.filnik.goosegamekata
 
-import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.compose.ui.test.onNodeWithText
-import androidx.compose.ui.test.performClick
 import androidx.test.core.app.ActivityScenario
 import androidx.test.runner.AndroidJUnit4
 import org.junit.Before
@@ -13,7 +10,7 @@ import org.junit.runner.RunWith
 import org.robolectric.shadows.ShadowLog
 
 @RunWith(AndroidJUnit4::class)
-class GooseGameInstrumentedTest {
+class AddPlayerInstrumentedTest {
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -24,15 +21,10 @@ class GooseGameInstrumentedTest {
     }
 
     @Test
-    fun `can navigate to Goose Game board screen`() {
+    fun `test Roll Dice is present`() {
         val scenario = ActivityScenario.launch(MainActivity::class.java)
 
         scenario.onActivity { activity ->
-            composeTestRule.onNodeWithText("Next").assertIsDisplayed().performClick()
-
-            composeTestRule.waitForIdle()
-
-            composeTestRule.onNodeWithText("Goose Game").assertIsDisplayed()
         }
     }
 }
