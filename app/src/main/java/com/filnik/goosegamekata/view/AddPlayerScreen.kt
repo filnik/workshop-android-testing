@@ -66,6 +66,7 @@ fun AddPlayerScreen(
         Button(
             onClick = {
                 addPlayer(playerName.value)
+                playerName.value = ""
             },
         ) {
             Text("Add Player")
