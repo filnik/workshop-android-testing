@@ -13,6 +13,7 @@ dagger = "2.51.1"
 runner = "1.6.1"
 navigationCompose = "2.8.0-beta04"
 serialization = "1.6.3"
+mockk = "1.13.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -41,6 +42,7 @@ test-kotest-assertions-core = { group = "io.kotest", name = "kotest-assertions-c
 test-junit-vintage = { group = 'org.junit.vintage', name = "junit-vintage-engine", version.strictly = "5.10.3" }
 test-junit5 = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.strictly = "5.10.3" }
 test-junit5-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.strictly = "5.10.3" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
