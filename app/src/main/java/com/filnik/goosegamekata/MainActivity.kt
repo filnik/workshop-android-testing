@@ -8,6 +8,8 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -35,13 +37,15 @@ class MainActivity : ComponentActivity() {
                 ) {
                     composable<AddPlayerScreenRoute> {
                         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                            val players by viewModel.playersName.collectAsState(initial = emptyList())
+                            val errorMessage by viewModel.errorMessage.collectAsState()
                             AddPlayerScreen(
                                 modifier = Modifier.padding(innerPadding),
                                 {
                                     navController.navigate(GameBoardScreenRoute)
                                 },
-                                viewModel.players,
-                                viewModel.errorMessage,
+                                players,
+                                errorMessage,
                                 viewModel::addPlayer,
                             )
                         }
