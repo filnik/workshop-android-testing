@@ -29,6 +29,19 @@ class AddPlayerInstrumentedTest {
         val scenario = ActivityScenario.launch(MainActivity::class.java)
 
         scenario.onActivity { activity ->
+            composeTestRule.onNodeWithText("Player Name").assertIsDisplayed().performTextInput("Pippo")
+            composeTestRule.onNodeWithText("Add Player").performClick()
+
+            composeTestRule.waitForIdle()
+
+            composeTestRule.onNodeWithText("Player list: Pippo").assertIsDisplayed()
+
+            composeTestRule.onNodeWithText("Player Name").assertIsDisplayed().performTextInput("Pluto")
+            composeTestRule.onNodeWithText("Add Player").performClick()
+
+            composeTestRule.waitForIdle()
+
+            composeTestRule.onNodeWithText("Player list: Pippo, Pluto").assertIsDisplayed()
         }
     }
 }

@@ -10,10 +10,10 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor() : ViewModel() {
     val dice = MutableStateFlow(listOf(2, 6))
     val errorMessage: MutableStateFlow<String?> = MutableStateFlow(null)
-    val players = MutableStateFlow(listOf(Player(0, "Player 1", 9), Player(1, "Player 2", 2, true)))
+    val players = MutableStateFlow(listOf<Player>())
 
     fun addPlayer(playerName: String) {
-        players.value = listOf(Player(0, "Pippo", 0, true))
+        players.value += listOf(Player(players.value.size, playerName, 0, players.value.isEmpty()))
     }
 
     fun rollDice() {
