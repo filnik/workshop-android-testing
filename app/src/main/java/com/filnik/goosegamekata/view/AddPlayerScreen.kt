@@ -19,16 +19,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.filnik.goosegamekata.model.Player
 
 @Composable
 fun AddPlayerScreen(
     modifier: Modifier = Modifier,
     navigateToNextScreen: () -> Unit,
-    players: List<String>,
+    playersModel: List<Player>,
     errorMessage: String?,
     addPlayer: (String) -> Unit,
 ) {
     var playerName by remember { mutableStateOf("") }
+    val players = playersModel.map { it.name }
 
     Column(
         modifier = modifier
@@ -78,7 +80,7 @@ fun AddPlayerScreen(
 fun AddPlayerScreenPreview() {
     AddPlayerScreen(
         navigateToNextScreen = {},
-        players = listOf("Player 1", "Player 2"),
+        playersModel = listOf(Player(0, "Player 1", 9), Player(1, "Player 2", 2, true)),
         errorMessage = null,
         addPlayer = {},
     )
@@ -89,7 +91,7 @@ fun AddPlayerScreenPreview() {
 fun AddPlayerScreenPreviewWithError() {
     AddPlayerScreen(
         navigateToNextScreen = {},
-        players = listOf("Player 1", "Player 2"),
+        playersModel = listOf(Player(0, "Player 1", 9), Player(1, "Player 2", 2, true)),
         errorMessage = "Error",
         addPlayer = {},
     )

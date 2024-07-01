@@ -37,13 +37,11 @@ class MainActivity : ComponentActivity() {
                 ) {
                     composable<AddPlayerScreenRoute> {
                         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                            val players by viewModel.playersName.collectAsState(initial = emptyList())
+                            val players by viewModel.players.collectAsState(initial = emptyList())
                             val errorMessage by viewModel.errorMessage.collectAsState()
                             AddPlayerScreen(
                                 modifier = Modifier.padding(innerPadding),
-                                {
-                                    navController.navigate(GameBoardScreenRoute)
-                                },
+                                { navController.navigate(GameBoardScreenRoute) },
                                 players,
                                 errorMessage,
                                 viewModel::addPlayer,
@@ -52,10 +50,12 @@ class MainActivity : ComponentActivity() {
                     }
                     composable<GameBoardScreenRoute> {
                         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                            val players by viewModel.players.collectAsState()
+                            val dice by viewModel.dice.collectAsState()
                             GameBoardScreen(
                                 modifier = Modifier.padding(innerPadding),
-                                players = viewModel.players,
-                                diceFlow = viewModel.dice,
+                                players = players,
+                                dice = dice,
                                 rollDice = viewModel::rollDice,
                             )
                         }
