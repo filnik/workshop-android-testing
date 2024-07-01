@@ -22,8 +22,6 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -36,19 +34,15 @@ import androidx.compose.ui.unit.sp
 import com.filnik.goosegamekata.model.Player
 import com.filnik.goosegamekata.model.PlayerUI
 import com.filnik.goosegamekata.model.toUI
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.map
 
 @Composable
 fun GameBoardScreen(
     modifier: Modifier,
-    players: StateFlow<List<Player>> = MutableStateFlow(emptyList()),
-    diceFlow: StateFlow<List<Int>> = MutableStateFlow(listOf(1, 2)),
+    players: List<Player> = emptyList(),
+    dice: List<Int> = listOf(1, 2),
     rollDice: () -> Unit = {},
 ) {
-    val uiPlayers by players.map { it.map { player -> player.toUI() } }.collectAsState(initial = emptyList())
-    val dice by diceFlow.collectAsState()
+    val uiPlayers = players.map { player -> player.toUI() }
     val die1 = dice[0]
     val die2 = dice[1]
 
@@ -157,7 +151,7 @@ private fun DrawCellWithNumber(index: Int, cellNumber: Int) {
 @Preview(showBackground = true, heightDp = 550)
 @Composable
 fun GameBoardPreview() {
-    val players = MutableStateFlow(listOf(Player(0, "Player 1", 3), Player(1, "Player 2", 10, true)))
-    val dice = MutableStateFlow(listOf(6, 4))
+    val players = listOf(Player(0, "Player 1", 3), Player(1, "Player 2", 10, true))
+    val dice = listOf(6, 4)
     GameBoardScreen(Modifier, players, dice)
 }
