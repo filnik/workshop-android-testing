@@ -3,8 +3,7 @@
 ## Credits
 
 The original version of this kata can be found [at this address](https://github.com/xpeppers/goose-game-kata) and is kindly offered
-by [Matteo Vaccari](https://github.com/xpmatteo), you can find the original
-slides [here](https://www.slideshare.net/pierodibello/il-dilettevole-giuoco-delloca-coding-dojo).
+by [Matteo Vaccari](https://github.com/xpmatteo), you can find the original slides [here](https://www.slideshare.net/pierodibello/il-dilettevole-giuoco-delloca-coding-dojo).
 
 This version is adapted in order to be used during a workshop about Android testing. The UI in Jetpack Compose and the general architecture is already given to
 the user to help him focusing only on the testing phase.
