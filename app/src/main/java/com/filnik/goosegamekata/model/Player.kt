@@ -3,12 +3,7 @@ package com.filnik.goosegamekata.model
 import androidx.annotation.DrawableRes
 import com.filnik.goosegamekata.R
 
-data class Player(
-    val id: Int = 0,
-    val name: String,
-    var position: Int = 0,
-    val rollDice: Boolean = false,
-)
+data class Player(val id: Int = 0, val name: String, var position: Int = 0, val rollDice: Boolean = false)
 
 fun Player.toUI(): PlayerUI {
     val image =
@@ -24,9 +19,4 @@ fun Player.toUI(): PlayerUI {
     return PlayerUI(name, position, rollDice, image)
 }
 
-data class PlayerUI(
-    val name: String,
-    var position: Int = 0,
-    val rollDice: Boolean,
-    @DrawableRes val image: Int = R.drawable.checker1,
-)
+data class PlayerUI(val name: String, var position: Int = 0, val rollDice: Boolean, @DrawableRes val image: Int = R.drawable.checker1)

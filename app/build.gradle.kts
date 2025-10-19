@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
-    id(libs.plugins.kotlin.kapt.get().pluginId)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ktlint)
     alias(libs.plugins.hilt)
@@ -10,12 +10,12 @@ plugins {
 
 android {
     namespace = "com.filnik.goosegamekata"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.filnik.goosegamekata"
         minSdk = 29
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -84,8 +84,8 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     testImplementation(libs.test.kotest.assertions.core)
     testImplementation(libs.androidx.ui.test.junit4)
-    kapt(libs.hilt.android.compiler)
-    kaptAndroidTest(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
+    kspAndroidTest(libs.hilt.android.compiler)
     testImplementation(libs.test.android.hilt)
     testImplementation(libs.androidx.robolectric)
     testImplementation(libs.mockk)
